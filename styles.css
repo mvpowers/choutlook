@@ -1,0 +1,59 @@
+html {
+  font-family: sans-serif;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	background-color: red;
+}
+
+/* navbar */
+
+.nav-bar {
+	display: flex;
+  justify-content: space-between;
+	background-color: #0078D7;
+  color: #FFF;
+}
+
+.nav-bar-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icon {
+  padding: 15px;
+}
+
+.icon:hover {
+  background-color: #005A9E;
+}
+
+#app-name {
+  font-size: 17px;
+  margin: 0 30px;
+}
+
+#search input {
+  background-color: #B3D7F3;
+  border: 1px solid #0078D7;
+  border-radius: 4px;
+  padding: 5px;
+  color: #333;
+}
+
+/* message bar */
+
+.message-bar {
+	background-color: dodgerblue;
+}
+
+/* content */
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
