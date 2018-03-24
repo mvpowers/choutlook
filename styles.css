@@ -1,9 +1,12 @@
-html {
+html, body {
   font-family: sans-serif;
+  height: 100%;
+  width: 100%;
 }
 
 .container {
 	display: flex;
+  height: 100%;
 	flex-direction: column;
 	background-color: red;
 }
@@ -17,7 +20,7 @@ html {
   color: #FFF;
 }
 
-.nav-bar-left {
+.nav-bar-group {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -27,7 +30,7 @@ html {
   padding: 15px;
 }
 
-.icon:hover {
+.nav-bar-group > .icon:hover {
   background-color: #005A9E;
 }
 
@@ -47,7 +50,24 @@ html {
 /* message bar */
 
 .message-bar {
-	background-color: dodgerblue;
+  display: flex;
+  flex-direction: row;
+	background-color: #F8F8F8;
+  color: #5084AA;
+}
+
+.new-message {
+  display: flex;
+  align-items: center;
+  padding-right: 15px;
+}
+
+.new-message:hover {
+  background-color: #C7E0F4;
+}
+
+.message-bar > .icon:hover {
+  background-color: #C7E0F4;
 }
 
 /* content */
@@ -56,4 +76,17 @@ html {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  flex: 1;
+}
+
+.icons-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: #F4F4F4;
+  color: #005A9E;
+}
+
+.icons-bar > .icon:hover {
+  background-color: #C7E0F4;
 }
