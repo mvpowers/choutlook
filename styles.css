@@ -74,10 +74,12 @@ html, body {
 
 .content {
   display: flex;
-  justify-content: space-between;
+  /*justify-content: space-around;*/
   flex-direction: row;
   flex: 1;
 }
+
+/* icons bar */
 
 .icons-bar {
   display: flex;
@@ -89,4 +91,44 @@ html, body {
 
 .icons-bar > .icon:hover {
   background-color: #C7E0F4;
+}
+
+/* folders */
+
+.folders {
+  background-color: #F4F4F4;
+}
+
+.folder-list {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  padding-right: 30%;
+  align-items: center;
+  color: #333;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.folder-list.link {
+  color: #005A9E;
+  padding: 10px 0 10px 30px;
+}
+
+.folder-list.folder:hover {
+  background-color: #EAEAEA;
+  color: #000;
+}
+
+.folder-list.title:hover {
+  color: #000;
+}
+
+.folder-list > .icon {
+  color: #666;
+  padding: 10px 15px;
+}
+
+.folder-list > .icon {
+  color: #000;
 }
