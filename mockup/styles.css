@@ -202,3 +202,23 @@ html, body {
 .message-panel-title {
   margin: 20px;
 }
+
+.read-message {
+  background-color: #FFF;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 12px;
+}
+
+.user-icon {
+  display:inline-block;
+  border-radius: 100px;    
+  background-color: #1E7145;
+  color: #FFF;
+  padding: 10px 10px;
+  margin: 10px;
+}
