@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaPlus } from 'react-icons/lib/fa';
+import {
+  FaCheckSquareO,
+  FaEnvelopeO,
+  FaCalendar,
+  FaGroup,
+} from 'react-icons/lib/fa';
 
 const Container = styled.div`
   display: flex;
@@ -21,16 +26,16 @@ const Icon = styled.div`
 export default () => (
   <Container>
     <Icon>
-      <FaPlus size={16} />
+      <FaEnvelopeO size={16} />
     </Icon>
     <Icon>
-      <FaPlus size={16} />
+      <FaCalendar size={16} />
     </Icon>
     <Icon>
-      <FaPlus size={16} />
+      <FaGroup size={16} />
     </Icon>
     <Icon>
-      <FaPlus size={16} />
+      <FaCheckSquareO size={16} />
     </Icon>
   </Container>
 );

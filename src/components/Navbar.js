@@ -43,7 +43,7 @@ export default () => (
         <FaTh size={16} />
       </Icon>
       <Title>Choutlook</Title>
-      <StyledInput type="text" placeholder="what up" />
+      <StyledInput type="text" placeholder="Search" />
     </Section>
     <Section>
       <Icon>
