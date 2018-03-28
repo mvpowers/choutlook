@@ -5,6 +5,7 @@ import NewMessageBar from './components/NewMessageBar';
 import FolderList from './components/FolderList';
 import IconsBar from './components/IconsBar';
 import MessageList from './components/MessageList';
+import MessageView from './components/MessageView';
 
 const Container = styled.div`
   display: flex;
@@ -28,6 +29,7 @@ const App = () => (
       <IconsBar />
       <FolderList />
       <MessageList />
+      <MessageView />
     </Content>
   </Container>
 );
