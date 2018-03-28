@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Navbar from './components/Navbar';
 import NewMessageBar from './components/NewMessageBar';
+import FoldersList from './components/FoldersList';
 import IconsBar from './components/IconsBar';
 
 const Container = styled.div`
@@ -24,6 +25,7 @@ const App = () => (
     <NewMessageBar />
     <Content>
       <IconsBar />
+      <FoldersList />
     </Content>
   </Container>
 );
