@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Navbar from './components/Navbar';
 import NewMessageBar from './components/NewMessageBar';
-import FoldersList from './components/FoldersList';
+import FolderList from './components/FolderList';
 import IconsBar from './components/IconsBar';
-import MessagesList from './components/MessagesList';
+import MessageList from './components/MessageList';
 
 const Container = styled.div`
   display: flex;
@@ -26,8 +26,8 @@ const App = () => (
     <NewMessageBar />
     <Content>
       <IconsBar />
-      <FoldersList />
-      <MessagesList />
+      <FolderList />
+      <MessageList />
     </Content>
   </Container>
 );

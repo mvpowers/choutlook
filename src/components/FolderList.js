@@ -17,6 +17,7 @@ const Container = styled.div`
   flex-direction: column;
   background-color: #f4f4f4;
   color: #5084aa;
+  border-left: 1px solid #eaeaea;
 `;
 
 export default () => (

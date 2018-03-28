@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaChevronDown } from 'react-icons/lib/fa';
+import Message from './Message';
 
 const Container = styled.div`
   background-color: #fff;
@@ -36,10 +37,19 @@ const Text = styled.div`
 
 const Period = styled.div`
   background-color: #f8f8f8;
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea
   padding: 10px;
   font-size: 14px;
 `;
+
+const testData = [
+  { user: 'personA', message: 'so then I said to the guy...' },
+  { user: 'personB', message: 'that is my shoe' },
+  { user: 'personA', message: 'so then I said to the guy...' },
+  { user: 'personB', message: 'that is my shoe' },
+  { user: 'personA', message: 'so then I said to the guy...' },
+  { user: 'personB', message: 'that is my shoe' },
+];
 
 export default () => (
   <Container>
@@ -51,5 +61,6 @@ export default () => (
       </Filter>
     </Header>
     <Period>Today</Period>
+    {testData.map(msg => <Message user={msg.user} msg={msg.message} />)}
   </Container>
 );
