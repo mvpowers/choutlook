@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Reply from './Reply';
 
 const Container = styled.div`
   flex: 1;
@@ -52,13 +53,8 @@ export default () => (
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab amet
         consequuntur culpa cupiditate delectus est explicabo fugit harum illum
         incidunt ipsam, minima neque nostrum odit officia placeat possimus
-        quaerat quasi quod rem similique tenetur. Ab alias amet animi aperiam
-        atque consectetur consequatur cum cumque dignissimos dolorum ducimus
-        earum enim est eveniet ex illo in ipsam minima modi molestias
-        necessitatibus non nostrum, numquam obcaecati odit optio porro qui
-        reiciendis rem repellat reprehenderit sed sequi sint, totam veritatis
-        vero vitae. Nesciunt.
       </Text>
     </Message>
+    <Reply />
   </Container>
 );
