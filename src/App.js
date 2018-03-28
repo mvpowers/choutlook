@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import NewMessageBar from './components/NewMessageBar';
 import FoldersList from './components/FoldersList';
 import IconsBar from './components/IconsBar';
+import MessagesList from './components/MessagesList';
 
 const Container = styled.div`
   display: flex;
@@ -26,6 +27,7 @@ const App = () => (
     <Content>
       <IconsBar />
       <FoldersList />
+      <MessagesList />
     </Content>
   </Container>
 );
