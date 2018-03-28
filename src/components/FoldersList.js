@@ -1,6 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import {
+  FaInbox,
+  FaPencil,
+  FaListAlt,
+  FaBan,
+  FaArrowRight,
+  FaTrashO,
+} from 'react-icons/lib/fa';
 import Folder from './Folder';
+import FolderSection from './FolderSection';
+import FolderLink from './FolderLink';
 
 const Container = styled.div`
   display: flex;
@@ -11,8 +21,18 @@ const Container = styled.div`
 
 export default () => (
   <Container>
-    <Folder />
-    <Folder />
-    <Folder />
+    <FolderSection name="Favorites" />
+    <Folder name="Inbox" icon={<FaInbox size={16} />} />
+    <Folder name="Drafts" icon={<FaPencil size={16} />} />
+    <Folder name="Archive" icon={<FaListAlt size={16} />} />
+    <FolderLink name="Add favorite" />
+    <FolderSection name="Folders" />
+    <Folder name="Inbox" icon={<FaInbox size={16} />} />
+    <Folder name="Junk Email" icon={<FaBan size={16} />} />
+    <Folder name="Drafts" icon={<FaPencil size={16} />} />
+    <Folder name="Sent Items" icon={<FaArrowRight size={16} />} />
+    <Folder name="Deleted" icon={<FaTrashO size={16} />} />
+    <Folder name="Archive" icon={<FaListAlt size={16} />} />
+    <FolderLink name="New folder" />
   </Container>
 );

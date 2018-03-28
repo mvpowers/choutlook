@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { FaChevronDown } from 'react-icons/lib/fa';
 
 const Container = styled.div`
   display: flex;
@@ -13,13 +14,8 @@ const Container = styled.div`
   font-size: 14px;
 
   &:hover {
-    background-color: #eaeaea;
     color: #000;
   }
-`;
-
-const Icon = styled.div`
-  padding: 15px;
 `;
 
 const Name = styled.div`
@@ -28,20 +24,21 @@ const Name = styled.div`
   padding-right: 15px;
 `;
 
-const Folder = ({ name, icon }) => (
+const Icon = styled.div`
+  padding: 15px;
+`;
+
+const FolderSection = ({ name }) => (
   <Container>
-    <Icon>{icon}</Icon>
+    <Icon>
+      <FaChevronDown size={12} />
+    </Icon>
     <Name>{name}</Name>
   </Container>
 );
 
-Folder.propTypes = {
+FolderSection.propTypes = {
   name: PropTypes.string.isRequired,
-  icon: PropTypes.shape({
-    props: PropTypes.shape({
-      size: PropTypes.number,
-    }),
-  }).isRequired,
 };
 
-export default Folder;
+export default FolderSection;
