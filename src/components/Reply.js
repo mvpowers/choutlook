@@ -63,6 +63,35 @@ const Icon = styled.div`
   }
 `;
 
+const Send = styled.div`
+  background-color: #0078d7;
+  color: #fff;
+  padding: 8px 18px;
+  margin: 20px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 900;
+  display: inline-block;
+
+  &:hover {
+    background-color: #106ebe;
+  }
+`;
+
+const Discard = styled.div`
+  color: #333;
+  padding: 8px 18px;
+  margin: 20px 0;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 900;
+  display: inline-block;
+
+  &:hover {
+    background-color: #dadada;
+  }
+`;
+
 export default () => (
   <Container>
     <Sender>
@@ -99,5 +128,7 @@ export default () => (
         <FaListOl size={16} />
       </Icon>
     </Tools>
+    <Send>Send</Send>
+    <Discard>Discard</Discard>
   </Container>
 );
