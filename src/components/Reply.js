@@ -125,6 +125,13 @@ export default class Reply extends Component {
     this.setState({ msg: '' });
   };
 
+  handleKeyPress = e => {
+    if (!e.shiftKey && e.key === 'Enter') {
+      console.log('send message:', this.state.msg);
+      this.setState({ msg: '' });
+    }
+  };
+
   render() {
     const { msg } = this.state;
     return (
@@ -133,7 +140,12 @@ export default class Reply extends Component {
           <Bubble>CH</Bubble>
           admin@choutlook.com
         </Sender>
-        <Text type="textarea" value={msg} onChange={this.handleChange} />
+        <Text
+          type="textarea"
+          value={msg}
+          onChange={this.handleChange}
+          onKeyPress={this.handleKeyPress}
+        />
         <Tools>
           {icons.map((icon, i) =>
           <Icon key={i}>
