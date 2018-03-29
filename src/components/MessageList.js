@@ -61,6 +61,8 @@ export default () => (
       </Filter>
     </Header>
     <Period>Today</Period>
-    {testData.map(msg => <Message user={msg.user} msg={msg.message} />)}
+    {testData.map((msg, i) => (
+      <Message key={i} user={msg.user} msg={msg.message} />
+    ))}
   </Container>
 );

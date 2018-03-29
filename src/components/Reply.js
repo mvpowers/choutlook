@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import {
   FaBold,
@@ -92,43 +92,58 @@ const Discard = styled.div`
   }
 `;
 
-export default () => (
-  <Container>
-    <Sender>
-      <Bubble>CH</Bubble>
-      admin@choutlook.com
-    </Sender>
-    <Text type="textarea" />
-    <Tools>
-      <Icon>
-        <FaBold size={16} />
-      </Icon>
-      <Icon>
-        <FaItalic size={16} />
-      </Icon>
-      <Icon>
-        <FaUnderline size={16} />
-      </Icon>
-      <Icon>
-        <FaAlignCenter size={16} />
-      </Icon>
-      <Icon>
-        <FaAlignJustify size={16} />
-      </Icon>
-      <Icon>
-        <FaAlignLeft size={16} />
-      </Icon>
-      <Icon>
-        <FaAlignRight size={16} />
-      </Icon>
-      <Icon>
-        <FaListUl size={16} />
-      </Icon>
-      <Icon>
-        <FaListOl size={16} />
-      </Icon>
-    </Tools>
-    <Send>Send</Send>
-    <Discard>Discard</Discard>
-  </Container>
-);
+const icons = [
+  <FaBold size={16} />,
+  <FaItalic size={16} />,
+  <FaUnderline size={16} />,
+  <FaAlignCenter size={16} />,
+  <FaAlignJustify size={16} />,
+  <FaAlignLeft size={16} />,
+  <FaAlignRight size={16} />,
+  <FaListUl size={16} />,
+  <FaListOl size={16} />,
+];
+
+export default class Reply extends Component {
+  constructor() {
+    super();
+    this.state = {
+      msg: '',
+    };
+  }
+
+  handleChange = e => {
+    this.setState({ msg: e.target.value });
+  };
+
+  handleSend = () => {
+    console.log('send message:', this.state.msg);
+    this.setState({ msg: '' });
+  };
+
+  handleDiscard = () => {
+    this.setState({ msg: '' });
+  };
+
+  render() {
+    const { msg } = this.state;
+    return (
+      <Container>
+        <Sender>
+          <Bubble>CH</Bubble>
+          admin@choutlook.com
+        </Sender>
+        <Text type="textarea" value={msg} onChange={this.handleChange} />
+        <Tools>
+          {icons.map((icon, i) =>
+          <Icon key={i}>
+            {icon}
+          </Icon>
+          )}
+        </Tools>
+        <Send onClick={this.handleSend}>Send</Send>
+        <Discard onClick={this.handleDiscard}>Discard</Discard>
+      </Container>
+    );
+  }
+}
