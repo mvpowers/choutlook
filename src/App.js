@@ -44,7 +44,14 @@ export default class App extends Component {
 
   componentDidMount() {
     const socket = openSocket('http://localhost:3001');
-    socket.on('postMessage', data => this.setState({ messages: data }));
+    socket.on('broadcastMessage', data => {
+      this.setState({
+        displayMsg: [...this.state.displayMsg, {
+          user: 'test_user',
+          message: data,
+        }]
+      })
+    });
   }
 
   handleChange = e => {
@@ -52,7 +59,7 @@ export default class App extends Component {
   };
 
   handleSend = () => {
-    socket.emit('postMessage', this.state.sendMsg);
+    socket.emit('createMessage', this.state.sendMsg);
     this.setState({ sendMsg: '' });
   };
 
@@ -62,7 +69,7 @@ export default class App extends Component {
 
   handleKeyPress = e => {
     if (!e.shiftKey && e.key === 'Enter') {
-      socket.emit('postMessage', this.state.sendMsg);
+      socket.emit('createMessage', this.state.sendMsg);
       this.setState({ sendMsg: '' });
     }
   };

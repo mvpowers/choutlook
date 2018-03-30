@@ -3,9 +3,9 @@ const io = require('socket.io')();
 /* eslint-disable no-console */
 
 io.on('connection', client => {
-  client.on('postMessage', msg => {
+  client.on('createMessage', msg => {
     console.log(msg);
-    client.emit(msg);
+    client.broadcast.emit('broadcastMessage', msg);
   });
 });
 
