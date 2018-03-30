@@ -105,7 +105,13 @@ const icons = [
   <FaListOl size={16} />,
 ];
 
-const Reply = ({ sendMsg, updateSendMsg, submitSendMsg }) => (
+const Reply = ({
+  sendMsg,
+  updateSendMsg,
+  submitSendMsg,
+  discardSendMsg,
+  submitOnEnter,
+}) => (
   <Container>
     <Sender>
       <Bubble>CH</Bubble>
@@ -115,11 +121,11 @@ const Reply = ({ sendMsg, updateSendMsg, submitSendMsg }) => (
       type="textarea"
       value={sendMsg}
       onChange={updateSendMsg}
-      onKeyPress={submitSendMsg}
+      onKeyPress={submitOnEnter}
     />
     <Tools>{icons.map((icon, i) => <Icon key={i}>{icon}</Icon>)}</Tools>
-    <Send onClick={this.handleSend}>Send</Send>
-    <Discard onClick={this.handleDiscard}>Discard</Discard>
+    <Send onClick={submitSendMsg}>Send</Send>
+    <Discard onClick={discardSendMsg}>Discard</Discard>
   </Container>
 );
 
@@ -127,6 +133,8 @@ Reply.propTypes = {
   sendMsg: PropTypes.string.isRequired,
   updateSendMsg: PropTypes.func.isRequired,
   submitSendMsg: PropTypes.func.isRequired,
+  discardSendMsg: PropTypes.func.isRequired,
+  submitOnEnter: PropTypes.func.isRequired,
 };
 
 export default Reply;

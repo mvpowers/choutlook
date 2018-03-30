@@ -52,7 +52,7 @@ export default class App extends Component {
   };
 
   handleSend = () => {
-    socket.emit('postMessage', this.state.msg);
+    socket.emit('postMessage', this.state.sendMsg);
     this.setState({ sendMsg: '' });
   };
 
@@ -62,7 +62,7 @@ export default class App extends Component {
 
   handleKeyPress = e => {
     if (!e.shiftKey && e.key === 'Enter') {
-      socket.emit('postMessage', this.state.msg);
+      socket.emit('postMessage', this.state.sendMsg);
       this.setState({ sendMsg: '' });
     }
   };
@@ -80,7 +80,9 @@ export default class App extends Component {
           <MessageView
             sendMsg={sendMsg}
             updateSendMsg={this.handleChange}
-            submitSendMsg={this.handleKeyPress}
+            submitSendMsg={this.handleSend}
+            discardSendMsg={this.handleDiscard}
+            submitOnEnter={this.handleKeyPress}
           />
         </Content>
       </Container>

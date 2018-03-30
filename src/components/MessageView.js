@@ -42,7 +42,13 @@ const Text = styled.div`
   font-size: 14px;
 `;
 
-const MessageView = ({ sendMsg, updateSendMsg, submitSendMsg }) => (
+const MessageView = ({
+  sendMsg,
+  updateSendMsg,
+  submitSendMsg,
+  discardSendMsg,
+  submitOnEnter,
+}) => (
   <Container>
     <Title>Re: Super Important Business</Title>
     <Message>
@@ -60,6 +66,8 @@ const MessageView = ({ sendMsg, updateSendMsg, submitSendMsg }) => (
       sendMsg={sendMsg}
       updateSendMsg={updateSendMsg}
       submitSendMsg={submitSendMsg}
+      discardSendMsg={discardSendMsg}
+      submitOnEnter={submitOnEnter}
     />
   </Container>
 );
@@ -68,6 +76,8 @@ MessageView.propTypes = {
   sendMsg: PropTypes.string.isRequired,
   updateSendMsg: PropTypes.func.isRequired,
   submitSendMsg: PropTypes.func.isRequired,
+  discardSendMsg: PropTypes.func.isRequired,
+  submitOnEnter: PropTypes.func.isRequired,
 };
 
 export default MessageView;
