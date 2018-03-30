@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import openSocket from 'socket.io-client';
 import { FaChevronDown } from 'react-icons/lib/fa';
 import Message from './Message';
 
@@ -51,18 +52,36 @@ const testData = [
   { user: 'personB', message: 'that is my shoe' },
 ];
 
-export default () => (
-  <Container>
-    <Header>
-      <Title>Inbox</Title>
-      <Filter>
-        <Text>Filter</Text>
-        <FaChevronDown size={12} />
-      </Filter>
-    </Header>
-    <Period>Today</Period>
-    {testData.map((msg, i) => (
-      <Message key={i} user={msg.user} msg={msg.message} />
-    ))}
-  </Container>
-);
+export default class MessageList extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      messages: testData,
+    };
+  };
+
+  componentDidMount() {
+    const socket = openSocket('http://localhost:3001');
+    socket.on('postMessage', data => this.setState({ messages: data }));
+  }
+
+  render() {
+    const { messages } = this.state;
+    return (
+      <Container>
+        <Header>
+          <Title>Inbox</Title>
+          <Filter>
+            <Text>Filter</Text>
+            <FaChevronDown size={12} />
+          </Filter>
+        </Header>
+        <Period>Today</Period>
+        {messages.map((msg, i) => (
+          <Message key={i} user={msg.user} msg={msg.message} />
+        ))}
+      </Container>
+    )
+  }
+};
