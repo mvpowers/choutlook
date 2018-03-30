@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import openSocket from 'socket.io-client';
+import PropTypes from 'prop-types';
 import { FaChevronDown } from 'react-icons/lib/fa';
 import Message from './Message';
 
@@ -43,45 +43,24 @@ const Period = styled.div`
   font-size: 14px;
 `;
 
-const testData = [
-  { user: 'personA', message: 'so then I said to the guy...' },
-  { user: 'personB', message: 'that is my shoe' },
-  { user: 'personA', message: 'so then I said to the guy...' },
-  { user: 'personB', message: 'that is my shoe' },
-  { user: 'personA', message: 'so then I said to the guy...' },
-  { user: 'personB', message: 'that is my shoe' },
-];
+const MessageList = ({ displayMsg }) => (
+  <Container>
+    <Header>
+      <Title>Inbox</Title>
+      <Filter>
+        <Text>Filter</Text>
+        <FaChevronDown size={12} />
+      </Filter>
+    </Header>
+    <Period>Today</Period>
+    {displayMsg.map((msg, i) => (
+      <Message key={i} user={msg.user} msg={msg.message} />
+    ))}
+  </Container>
+);
 
-export default class MessageList extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      messages: testData,
-    };
-  };
-
-  componentDidMount() {
-    const socket = openSocket('http://localhost:3001');
-    socket.on('postMessage', data => this.setState({ messages: data }));
-  }
-
-  render() {
-    const { messages } = this.state;
-    return (
-      <Container>
-        <Header>
-          <Title>Inbox</Title>
-          <Filter>
-            <Text>Filter</Text>
-            <FaChevronDown size={12} />
-          </Filter>
-        </Header>
-        <Period>Today</Period>
-        {messages.map((msg, i) => (
-          <Message key={i} user={msg.user} msg={msg.message} />
-        ))}
-      </Container>
-    )
-  }
+MessageList.propTypes = {
+  displayMsg: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
+
+export default MessageList;

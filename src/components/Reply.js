@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import openSocket from 'socket.io-client';
+import PropTypes from 'prop-types';
 import {
   FaBold,
   FaItalic,
@@ -12,8 +12,6 @@ import {
   FaListUl,
   FaListOl,
 } from 'react-icons/lib/fa';
-
-const socket = openSocket('http://localhost:3001');
 
 const Container = styled.div`
   background-color: #fff;
@@ -107,58 +105,28 @@ const icons = [
   <FaListOl size={16} />,
 ];
 
-export default class Reply extends Component {
-  constructor() {
-    super();
-    this.state = {
-      msg: '',
-    };
-  }
+const Reply = ({ sendMsg, updateSendMsg, submitSendMsg }) => (
+  <Container>
+    <Sender>
+      <Bubble>CH</Bubble>
+      admin@choutlook.com
+    </Sender>
+    <Text
+      type="textarea"
+      value={sendMsg}
+      onChange={updateSendMsg}
+      onKeyPress={submitSendMsg}
+    />
+    <Tools>{icons.map((icon, i) => <Icon key={i}>{icon}</Icon>)}</Tools>
+    <Send onClick={this.handleSend}>Send</Send>
+    <Discard onClick={this.handleDiscard}>Discard</Discard>
+  </Container>
+);
 
-  handleChange = e => {
-    this.setState({ msg: e.target.value });
-  };
+Reply.propTypes = {
+  sendMsg: PropTypes.string.isRequired,
+  updateSendMsg: PropTypes.func.isRequired,
+  submitSendMsg: PropTypes.func.isRequired,
+};
 
-  handleSend = () => {
-    socket.emit('postMessage', this.state.msg);
-    this.setState({ msg: '' });
-  };
-
-  handleDiscard = () => {
-    this.setState({ msg: '' });
-  };
-
-  handleKeyPress = e => {
-    if (!e.shiftKey && e.key === 'Enter') {
-      socket.emit('postMessage', this.state.msg);
-      this.setState({ msg: '' });
-    }
-  };
-
-  render() {
-    const { msg } = this.state;
-    return (
-      <Container>
-        <Sender>
-          <Bubble>CH</Bubble>
-          admin@choutlook.com
-        </Sender>
-        <Text
-          type="textarea"
-          value={msg}
-          onChange={this.handleChange}
-          onKeyPress={this.handleKeyPress}
-        />
-        <Tools>
-          {icons.map((icon, i) =>
-          <Icon key={i}>
-            {icon}
-          </Icon>
-          )}
-        </Tools>
-        <Send onClick={this.handleSend}>Send</Send>
-        <Discard onClick={this.handleDiscard}>Discard</Discard>
-      </Container>
-    );
-  }
-}
+export default Reply;

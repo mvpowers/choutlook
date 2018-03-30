@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import openSocket from 'socket.io-client';
 import Navbar from './components/Navbar';
 import NewMessageBar from './components/NewMessageBar';
 import FolderList from './components/FolderList';
@@ -21,17 +22,68 @@ const Content = styled.div`
   height: 100%;
 `;
 
-const App = () => (
-  <Container>
-    <Navbar />
-    <NewMessageBar />
-    <Content>
-      <IconsBar />
-      <FolderList />
-      <MessageList />
-      <MessageView />
-    </Content>
-  </Container>
-);
+const socket = openSocket('http://localhost:3001');
 
-export default App;
+const testData = [
+  { user: 'personA', message: 'so then I said to the guy...' },
+  { user: 'personB', message: 'that is my shoe' },
+  { user: 'personA', message: 'so then I said to the guy...' },
+  { user: 'personB', message: 'that is my shoe' },
+  { user: 'personA', message: 'so then I said to the guy...' },
+  { user: 'personB', message: 'that is my shoe' },
+];
+
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      displayMsg: testData,
+      sendMsg: '',
+    };
+  }
+
+  componentDidMount() {
+    const socket = openSocket('http://localhost:3001');
+    socket.on('postMessage', data => this.setState({ messages: data }));
+  }
+
+  handleChange = e => {
+    this.setState({ sendMsg: e.target.value });
+  };
+
+  handleSend = () => {
+    socket.emit('postMessage', this.state.msg);
+    this.setState({ sendMsg: '' });
+  };
+
+  handleDiscard = () => {
+    this.setState({ sendMsg: '' });
+  };
+
+  handleKeyPress = e => {
+    if (!e.shiftKey && e.key === 'Enter') {
+      socket.emit('postMessage', this.state.msg);
+      this.setState({ sendMsg: '' });
+    }
+  };
+
+  render() {
+    const { displayMsg, sendMsg } = this.state;
+    return (
+      <Container>
+        <Navbar />
+        <NewMessageBar />
+        <Content>
+          <IconsBar />
+          <FolderList />
+          <MessageList displayMsg={displayMsg} />
+          <MessageView
+            sendMsg={sendMsg}
+            updateSendMsg={this.handleChange}
+            submitSendMsg={this.handleKeyPress}
+          />
+        </Content>
+      </Container>
+    );
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Reply from './Reply';
 
 const Container = styled.div`
@@ -41,7 +42,7 @@ const Text = styled.div`
   font-size: 14px;
 `;
 
-export default () => (
+const MessageView = ({ sendMsg, updateSendMsg, submitSendMsg }) => (
   <Container>
     <Title>Re: Super Important Business</Title>
     <Message>
@@ -55,6 +56,18 @@ export default () => (
         incidunt ipsam, minima neque nostrum odit officia placeat possimus
       </Text>
     </Message>
-    <Reply />
+    <Reply
+      sendMsg={sendMsg}
+      updateSendMsg={updateSendMsg}
+      submitSendMsg={submitSendMsg}
+    />
   </Container>
 );
+
+MessageView.propTypes = {
+  sendMsg: PropTypes.string.isRequired,
+  updateSendMsg: PropTypes.func.isRequired,
+  submitSendMsg: PropTypes.func.isRequired,
+};
+
+export default MessageView;
