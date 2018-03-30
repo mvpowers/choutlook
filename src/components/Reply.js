@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import openSocket from 'socket.io-client';
 import {
   FaBold,
   FaItalic,
@@ -11,6 +12,8 @@ import {
   FaListUl,
   FaListOl,
 } from 'react-icons/lib/fa';
+
+const socket = openSocket('http://localhost:3001');
 
 const Container = styled.div`
   background-color: #fff;
@@ -117,7 +120,7 @@ export default class Reply extends Component {
   };
 
   handleSend = () => {
-    console.log('send message:', this.state.msg);
+    socket.emit('postMessage', this.state.msg);
     this.setState({ msg: '' });
   };
 
@@ -127,7 +130,7 @@ export default class Reply extends Component {
 
   handleKeyPress = e => {
     if (!e.shiftKey && e.key === 'Enter') {
-      console.log('send message:', this.state.msg);
+      socket.emit('postMessage', this.state.msg);
       this.setState({ msg: '' });
     }
   };
