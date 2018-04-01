@@ -46,11 +46,15 @@ export default class App extends Component {
 
   componentDidMount() {
     const socket = openSocket(`http://${serverHost}:${serverPort}`);
-    socket.on('broadcastMessage', data => {
+    socket.on('broadcastMessage', encrypted => {
+      const decipher = crypto.createDecipher('aes192', this.state.password);
+      let decrypted = decipher.update(encrypted, 'hex', 'utf8');
+      decrypted += decipher.final('utf8');
+
       this.setState({
         displayMsg: [...this.state.displayMsg, {
           user: 'test_user',
-          message: data,
+          message: decrypted,
         }]
       })
     });
