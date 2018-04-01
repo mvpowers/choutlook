@@ -37,7 +37,7 @@ const StyledInput = styled.input`
   color: #333;
 `;
 
-const Navbar = ({ password, updatePassword }) => (
+const Navbar = ({ password, handleChange }) => (
   <Container>
     <Section>
       <Icon>
@@ -45,10 +45,11 @@ const Navbar = ({ password, updatePassword }) => (
       </Icon>
       <Title>Choutlook</Title>
       <StyledInput
+        id="password"
         type="text"
         placeholder="Search"
         value={password}
-        onChange={updatePassword}
+        onChange={handleChange}
       />
     </Section>
     <Section>
@@ -67,7 +68,7 @@ const Navbar = ({ password, updatePassword }) => (
 
 Navbar.propTypes = {
   password: PropTypes.string.isRequired,
-  updatePassword: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default Navbar;

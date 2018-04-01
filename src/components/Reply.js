@@ -112,7 +112,8 @@ const icons = [
 
 const Reply = ({
   sendMsg,
-  updateSendMsg,
+  username,
+  handleChange,
   submitSendMsg,
   discardSendMsg,
   submitOnEnter,
@@ -120,12 +121,18 @@ const Reply = ({
   <Container>
     <Sender>
       <Bubble>CH</Bubble>
-      <NameInput type="text" />@choutlook.com
+      <NameInput
+        id="username"
+        value={username}
+        type="text"
+        onChange={handleChange}
+      />@choutlook.com
     </Sender>
     <Text
+      id="sendMsg"
       type="textarea"
       value={sendMsg}
-      onChange={updateSendMsg}
+      onChange={handleChange}
       onKeyPress={submitOnEnter}
     />
     {/* eslint-disable-next-line react/no-array-index-key */}
@@ -137,7 +144,8 @@ const Reply = ({
 
 Reply.propTypes = {
   sendMsg: PropTypes.string.isRequired,
-  updateSendMsg: PropTypes.func.isRequired,
+  username: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
   submitSendMsg: PropTypes.func.isRequired,
   discardSendMsg: PropTypes.func.isRequired,
   submitOnEnter: PropTypes.func.isRequired,

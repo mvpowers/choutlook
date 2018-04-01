@@ -55,7 +55,7 @@ export default class App extends Component {
       console.log('check env', window);
       this.setState({
         displayMsg: [...this.state.displayMsg, {
-          user: 'test_user',
+          user: this.state.username,
           message: decrypted,
           time: Date.now().toString(),
         }]
@@ -63,12 +63,8 @@ export default class App extends Component {
     });
   }
 
-  handleMsgChange = e => {
-    this.setState({ sendMsg: e.target.value });
-  };
-
-  handlePwChange = e => {
-    this.setState({ password: e.target.value });
+  handleChange = e => {
+    this.setState({ [e.target.id]: e.target.value });
   };
 
   handleSend = () => {
@@ -98,10 +94,10 @@ export default class App extends Component {
   };
 
   render() {
-    const { displayMsg, sendMsg, password } = this.state;
+    const { displayMsg, sendMsg, password, username } = this.state;
     return (
       <Container>
-        <Navbar password={password} updatePassword={this.handlePwChange} />
+        <Navbar password={password} handleChange={this.handleChange} />
         <NewMessageBar />
         <Content>
           <IconsBar />
@@ -109,7 +105,8 @@ export default class App extends Component {
           <MessageList displayMsg={displayMsg} />
           <MessageView
             sendMsg={sendMsg}
-            updateSendMsg={this.handleMsgChange}
+            username={username}
+            handleChange={this.handleChange}
             submitSendMsg={this.handleSend}
             discardSendMsg={this.handleDiscard}
             submitOnEnter={this.handleKeyPress}

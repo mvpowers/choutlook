@@ -44,7 +44,8 @@ const Text = styled.div`
 
 const MessageView = ({
   sendMsg,
-  updateSendMsg,
+  username,
+  handleChange,
   submitSendMsg,
   discardSendMsg,
   submitOnEnter,
@@ -64,7 +65,8 @@ const MessageView = ({
     </Message>
     <Reply
       sendMsg={sendMsg}
-      updateSendMsg={updateSendMsg}
+      username={username}
+      handleChange={handleChange}
       submitSendMsg={submitSendMsg}
       discardSendMsg={discardSendMsg}
       submitOnEnter={submitOnEnter}
@@ -74,7 +76,8 @@ const MessageView = ({
 
 MessageView.propTypes = {
   sendMsg: PropTypes.string.isRequired,
-  updateSendMsg: PropTypes.func.isRequired,
+  username: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
   submitSendMsg: PropTypes.func.isRequired,
   discardSendMsg: PropTypes.func.isRequired,
   submitOnEnter: PropTypes.func.isRequired,
