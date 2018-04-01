@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FaChevronDown } from 'react-icons/lib/fa';
@@ -8,6 +8,7 @@ const Container = styled.div`
   background-color: #fff;
   border: 1px solid #eaeaea;
   width: 350px;
+  overflow-y: scroll;
 `;
 
 const Header = styled.div`
@@ -43,24 +44,40 @@ const Period = styled.div`
   font-size: 14px;
 `;
 
-const MessageList = ({ displayMsg }) => (
-  <Container>
-    <Header>
-      <Title>Inbox</Title>
-      <Filter>
-        <Text>Filter</Text>
-        <FaChevronDown size={12} />
-      </Filter>
-    </Header>
-    <Period>Today</Period>
-    {displayMsg.map((msg, i) => (
-      <Message key={i} user={msg.user} msg={msg.message} />
-    ))}
-  </Container>
-);
+export default class MessageList extends Component {
+  componentDidUpdate() {
+    this.scrollToBottom();
+  }
+
+  scrollToBottom() {
+    this.el.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  render() {
+    const { displayMsg } = this.props;
+    return (
+      <Container>
+        <Header>
+          <Title>Inbox</Title>
+          <Filter>
+            <Text>Filter</Text>
+            <FaChevronDown size={12} />
+          </Filter>
+        </Header>
+        <Period>Today</Period>
+        {displayMsg.map((msg, i) => (
+          <Message key={i} user={msg.user} msg={msg.message} />
+        ))}
+        <div
+          ref={el => {
+            this.el = el;
+          }}
+        />
+      </Container>
+    );
+  }
+}
 
 MessageList.propTypes = {
   displayMsg: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
-export default MessageList;
