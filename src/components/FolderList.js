@@ -8,9 +8,7 @@ import {
   FaArrowRight,
   FaTrashO,
 } from 'react-icons/lib/fa';
-import Folder from './Folder';
-import FolderSection from './FolderSection';
-import FolderLink from './FolderLink';
+import { Folder, FolderSection, FolderLink } from './';
 
 const Container = styled.div`
   display: flex;

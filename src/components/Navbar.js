@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { FaTh, FaCog, FaQuestion, FaSkype } from 'react-icons/lib/fa';
 
 const Container = styled.div`
@@ -36,14 +37,19 @@ const StyledInput = styled.input`
   color: #333;
 `;
 
-export default () => (
+const Navbar = ({ password, updatePassword }) => (
   <Container>
     <Section>
       <Icon>
         <FaTh size={16} />
       </Icon>
       <Title>Choutlook</Title>
-      <StyledInput type="text" placeholder="Search" />
+      <StyledInput
+        type="text"
+        placeholder="Search"
+        value={password}
+        onChange={updatePassword}
+      />
     </Section>
     <Section>
       <Icon>
@@ -58,3 +64,10 @@ export default () => (
     </Section>
   </Container>
 );
+
+Navbar.propTypes = {
+  password: PropTypes.string.isRequired,
+  updatePassword: PropTypes.func.isRequired,
+};
+
+export default Navbar;

@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import openSocket from 'socket.io-client';
-import Navbar from './components/Navbar';
-import NewMessageBar from './components/NewMessageBar';
-import FolderList from './components/FolderList';
-import IconsBar from './components/IconsBar';
-import MessageList from './components/MessageList';
-import MessageView from './components/MessageView';
+import {
+  Navbar,
+  NewMessageBar,
+  FolderList,
+  IconsBar,
+  MessageList,
+  MessageView,
+} from './components';
 
 require('dotenv').config();
 const crypto = require('crypto');
@@ -29,16 +31,11 @@ const Content = styled.div`
   height: 100%;
 `;
 
-
-const testData = [
-  { user: 'moderator', message: 'welcome to choutlook' },
-];
-
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      displayMsg: testData,
+      displayMsg: [],
       sendMsg: '',
       password: '',
     };
@@ -49,24 +46,34 @@ export default class App extends Component {
     socket.on('broadcastMessage', encrypted => {
       const decipher = crypto.createDecipher('aes192', this.state.password);
       let decrypted = decipher.update(encrypted, 'hex', 'utf8');
-      decrypted += decipher.final('utf8');
+      try {
+        decrypted += decipher.final('utf8');
+      } catch (e) {
+        decrypted = 'Error decrypting data';
+      }
 
       this.setState({
         displayMsg: [...this.state.displayMsg, {
           user: 'test_user',
           message: decrypted,
+          time: Date.now().toString(),
         }]
       })
     });
   }
 
-  handleChange = e => {
+  handleMsgChange = e => {
     this.setState({ sendMsg: e.target.value });
   };
 
+  handlePwChange = e => {
+    this.setState({ password: e.target.value });
+  };
+
   handleSend = () => {
-    const cipher = crypto.createCipher('aes192', this.state.password);
-    let encrypted = cipher.update(this.state.sendMsg, 'utf8', 'hex');
+    const { password, sendMsg } = this.state;
+    const cipher = crypto.createCipher('aes192', password);
+    let encrypted = cipher.update(sendMsg, 'utf8', 'hex');
     encrypted += cipher.final('hex');
 
     socket.emit('createMessage', encrypted);
@@ -78,9 +85,10 @@ export default class App extends Component {
   };
 
   handleKeyPress = e => {
+    const { password, sendMsg } = this.state;
     if (!e.shiftKey && e.key === 'Enter') {
-      const cipher = crypto.createCipher('aes192', this.state.password);
-      let encrypted = cipher.update(this.state.sendMsg, 'utf8', 'hex');
+      const cipher = crypto.createCipher('aes192', password);
+      let encrypted = cipher.update(sendMsg, 'utf8', 'hex');
       encrypted += cipher.final('hex');
 
       socket.emit('createMessage', encrypted);
@@ -89,10 +97,10 @@ export default class App extends Component {
   };
 
   render() {
-    const { displayMsg, sendMsg } = this.state;
+    const { displayMsg, sendMsg, password } = this.state;
     return (
       <Container>
-        <Navbar />
+        <Navbar password={password} updatePassword={this.handlePwChange} />
         <NewMessageBar />
         <Content>
           <IconsBar />
@@ -100,7 +108,7 @@ export default class App extends Component {
           <MessageList displayMsg={displayMsg} />
           <MessageView
             sendMsg={sendMsg}
-            updateSendMsg={this.handleChange}
+            updateSendMsg={this.handleMsgChange}
             submitSendMsg={this.handleSend}
             discardSendMsg={this.handleDiscard}
             submitOnEnter={this.handleKeyPress}

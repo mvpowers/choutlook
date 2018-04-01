@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FaChevronDown } from 'react-icons/lib/fa';
-import Message from './Message';
+import { Message } from './';
 
 const Container = styled.div`
   background-color: #fff;
@@ -65,8 +65,12 @@ export default class MessageList extends Component {
           </Filter>
         </Header>
         <Period>Today</Period>
-        {displayMsg.map((msg, i) => (
-          <Message key={i} user={msg.user} msg={msg.message} />
+        {displayMsg.map(msg => (
+          <Message
+            key={`${msg.user}_${msg.time}`}
+            user={msg.user}
+            msg={msg.message}
+          />
         ))}
         <div
           ref={el => {

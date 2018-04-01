@@ -123,7 +123,7 @@ const Reply = ({
       onChange={updateSendMsg}
       onKeyPress={submitOnEnter}
     />
-    <Tools>{icons.map((icon, i) => <Icon key={i}>{icon}</Icon>)}</Tools>
+    <Tools>{icons.map(icon => <Icon key={icon}>{icon}</Icon>)}</Tools>
     <Send onClick={submitSendMsg}>Send</Send>
     <Discard onClick={discardSendMsg}>Discard</Discard>
   </Container>
