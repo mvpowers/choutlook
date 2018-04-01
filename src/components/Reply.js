@@ -93,6 +93,11 @@ const Discard = styled.div`
   }
 `;
 
+const NameInput = styled.input`
+  border: none;
+  width: 10%;
+`;
+
 const icons = [
   <FaBold size={16} />,
   <FaItalic size={16} />,
@@ -115,7 +120,7 @@ const Reply = ({
   <Container>
     <Sender>
       <Bubble>CH</Bubble>
-      admin@choutlook.com
+      <NameInput type="text" />@choutlook.com
     </Sender>
     <Text
       type="textarea"
@@ -123,7 +128,8 @@ const Reply = ({
       onChange={updateSendMsg}
       onKeyPress={submitOnEnter}
     />
-    <Tools>{icons.map(icon => <Icon key={icon}>{icon}</Icon>)}</Tools>
+    {/* eslint-disable-next-line react/no-array-index-key */}
+    <Tools>{icons.map((icon, i) => <Icon key={i}>{icon}</Icon>)}</Tools>
     <Send onClick={submitSendMsg}>Send</Send>
     <Discard onClick={discardSendMsg}>Discard</Discard>
   </Container>

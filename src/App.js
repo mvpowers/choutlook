@@ -38,6 +38,7 @@ export default class App extends Component {
       displayMsg: [],
       sendMsg: '',
       password: '',
+      username: '',
     };
   }
 
@@ -51,7 +52,7 @@ export default class App extends Component {
       } catch (e) {
         decrypted = 'Error decrypting data';
       }
-
+      console.log('check env', window);
       this.setState({
         displayMsg: [...this.state.displayMsg, {
           user: 'test_user',
