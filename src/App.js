@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components';
 import openSocket from 'socket.io-client';
 import Navbar from './components/Navbar';
@@ -7,6 +7,12 @@ import FolderList from './components/FolderList';
 import IconsBar from './components/IconsBar';
 import MessageList from './components/MessageList';
 import MessageView from './components/MessageView';
+
+require('dotenv').config();
+
+const serverHost = process.env.SERVER_HOST || '127.0.0.1';
+const serverPort = process.env.SERVER_PORT || '3001';
+const socket = openSocket(`http://${serverHost}:${serverPort}`);
 
 const Container = styled.div`
   display: flex;
@@ -22,15 +28,9 @@ const Content = styled.div`
   height: 100%;
 `;
 
-const socket = openSocket('http://localhost:3001');
 
 const testData = [
-  { user: 'personA', message: 'so then I said to the guy...' },
-  { user: 'personB', message: 'that is my shoe' },
-  { user: 'personA', message: 'so then I said to the guy...' },
-  { user: 'personB', message: 'that is my shoe' },
-  { user: 'personA', message: 'so then I said to the guy...' },
-  { user: 'personB', message: 'that is my shoe' },
+  { user: 'moderator', message: 'welcome to choutlook' },
 ];
 
 export default class App extends Component {
@@ -43,7 +43,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    const socket = openSocket('http://localhost:3001');
+    const socket = openSocket(`http://${serverHost}:${serverPort}`);
     socket.on('broadcastMessage', data => {
       this.setState({
         displayMsg: [...this.state.displayMsg, {
