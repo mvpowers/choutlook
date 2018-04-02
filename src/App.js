@@ -45,18 +45,19 @@ export default class App extends Component {
 
   componentDidMount() {
     const socket = openSocket(`http://${serverHost}:${serverPort}`);
-    socket.on('broadcastMessage', encrypted => {
+    socket.on('broadcastMessage', data => {
       const decipher = crypto.createDecipher('aes192', this.state.password);
-      let decrypted = decipher.update(encrypted.text, 'hex', 'utf8');
+      let decrypted = decipher.update(data, 'hex', 'utf8');
       try {
         decrypted += decipher.final('utf8');
+        decrypted = JSON.parse(decrypted);
       } catch (e) {
-        decrypted = 'Error decrypting data';
+        decrypted = {username: 'admin', sendMsg: 'Error decrypting data'};
       }
       this.setState({
         displayMsg: [...this.state.displayMsg, {
-          user: encrypted.username,
-          message: decrypted,
+          user: decrypted.username,
+          message: decrypted.sendMsg,
           time: Date.now().toString(),
         }]
       })
@@ -69,14 +70,12 @@ export default class App extends Component {
 
   handleSend = () => {
     const { password, sendMsg, username } = this.state;
+    const msgObj = JSON.stringify({username, sendMsg});
     const cipher = crypto.createCipher('aes192', password);
-    let encrypted = cipher.update(sendMsg, 'utf8', 'hex');
+    let encrypted = cipher.update(msgObj, 'utf8', 'hex');
     encrypted += cipher.final('hex');
 
-    socket.emit('createMessage', {
-      username,
-      text: encrypted,
-    });
+    socket.emit('createMessage', encrypted);
     this.setState({ sendMsg: '' });
   };
 
@@ -87,14 +86,12 @@ export default class App extends Component {
   handleKeyPress = e => {
     const { password, sendMsg, username } = this.state;
     if (!e.shiftKey && e.key === 'Enter') {
+      const msgObj = JSON.stringify({username, sendMsg});
       const cipher = crypto.createCipher('aes192', password);
-      let encrypted = cipher.update(sendMsg, 'utf8', 'hex');
+      let encrypted = cipher.update(msgObj, 'utf8', 'hex');
       encrypted += cipher.final('hex');
 
-      socket.emit('createMessage', {
-        username,
-        text: encrypted,
-      });
+      socket.emit('createMessage', encrypted);
       this.setState({ sendMsg: '' });
     }
   };
