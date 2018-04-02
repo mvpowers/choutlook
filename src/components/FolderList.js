@@ -16,6 +16,7 @@ const Container = styled.div`
   background-color: #f4f4f4;
   color: #5084aa;
   border-left: 1px solid #eaeaea;
+  overflow-y: scroll;
 `;
 
 export default () => (

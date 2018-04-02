@@ -29,6 +29,7 @@ const Content = styled.div`
   flex-direction: row;
   flex: 1;
   height: 100%;
+  overflow: hidden;
 `;
 
 export default class App extends Component {
@@ -52,10 +53,9 @@ export default class App extends Component {
       } catch (e) {
         decrypted = 'Error decrypting data';
       }
-      console.log('check env', window);
       this.setState({
         displayMsg: [...this.state.displayMsg, {
-          user: this.state.username,
+          user: 'admin',
           message: decrypted,
           time: Date.now().toString(),
         }]
