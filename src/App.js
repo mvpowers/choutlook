@@ -8,6 +8,7 @@ import {
   IconsBar,
   MessageList,
   MessageView,
+  VisibilityTitle,
 } from './components';
 
 require('dotenv').config();

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FaChevronDown } from 'react-icons/lib/fa';
-import { Message } from './';
+import { Message, VisibilityTitle } from './';
 
 const Container = styled.div`
   background-color: #fff;
@@ -72,6 +72,7 @@ export default class MessageList extends Component {
             msg={msg.message}
           />
         ))}
+        <VisibilityTitle />
         <div
           ref={el => {
             this.el = el;
