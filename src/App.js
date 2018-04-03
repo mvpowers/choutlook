@@ -8,7 +8,6 @@ import {
   IconsBar,
   MessageList,
   MessageView,
-  VisibilityTitle,
 } from './components';
 
 require('dotenv').config();
@@ -41,6 +40,7 @@ export default class App extends Component {
       sendMsg: '',
       password: '',
       username: '',
+      replyFocus: false,
     };
   }
 
@@ -97,8 +97,16 @@ export default class App extends Component {
     }
   };
 
+  handleFocus = () => {
+    this.setState({replyFocus: true});
+  };
+
+  handleBlur = () => {
+    this.setState({replyFocus: false});
+  };
+
   render() {
-    const { displayMsg, sendMsg, password, username } = this.state;
+    const { displayMsg, sendMsg, password, username, replyFocus } = this.state;
     return (
       <Container>
         <Navbar password={password} handleChange={this.handleChange} />
@@ -106,7 +114,7 @@ export default class App extends Component {
         <Content>
           <IconsBar />
           <FolderList />
-          <MessageList displayMsg={displayMsg} />
+          <MessageList displayMsg={displayMsg} replyFocus={replyFocus} />
           <MessageView
             sendMsg={sendMsg}
             username={username}
@@ -114,6 +122,8 @@ export default class App extends Component {
             submitSendMsg={this.handleSend}
             discardSendMsg={this.handleDiscard}
             submitOnEnter={this.handleKeyPress}
+            handleFocus={this.handleFocus}
+            handleBlur={this.handleBlur}
           />
         </Content>
       </Container>

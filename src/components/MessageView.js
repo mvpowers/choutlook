@@ -49,6 +49,8 @@ const MessageView = ({
   submitSendMsg,
   discardSendMsg,
   submitOnEnter,
+  handleFocus,
+  handleBlur,
 }) => (
   <Container>
     <Title>Re: Super Important Business</Title>
@@ -70,6 +72,8 @@ const MessageView = ({
       submitSendMsg={submitSendMsg}
       discardSendMsg={discardSendMsg}
       submitOnEnter={submitOnEnter}
+      handleFocus={handleFocus}
+      handleBlur={handleBlur}
     />
   </Container>
 );
@@ -81,6 +85,8 @@ MessageView.propTypes = {
   submitSendMsg: PropTypes.func.isRequired,
   discardSendMsg: PropTypes.func.isRequired,
   submitOnEnter: PropTypes.func.isRequired,
+  handleFocus: PropTypes.func.isRequired,
+  handleBlur: PropTypes.func.isRequired,
 };
 
 export default MessageView;

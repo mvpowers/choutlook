@@ -117,6 +117,8 @@ const Reply = ({
   submitSendMsg,
   discardSendMsg,
   submitOnEnter,
+  handleFocus,
+  handleBlur,
 }) => (
   <Container>
     <Sender>
@@ -131,9 +133,11 @@ const Reply = ({
     <Text
       id="sendMsg"
       type="textarea"
-      value={sendMsg}
+      value={sendMsg.trimLeft()}
       onChange={handleChange}
       onKeyPress={submitOnEnter}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
     />
     {/* eslint-disable-next-line react/no-array-index-key */}
     <Tools>{icons.map((icon, i) => <Icon key={i}>{icon}</Icon>)}</Tools>
@@ -149,6 +153,8 @@ Reply.propTypes = {
   submitSendMsg: PropTypes.func.isRequired,
   discardSendMsg: PropTypes.func.isRequired,
   submitOnEnter: PropTypes.func.isRequired,
+  handleFocus: PropTypes.func.isRequired,
+  handleBlur: PropTypes.func.isRequired,
 };
 
 export default Reply;

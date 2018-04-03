@@ -46,7 +46,9 @@ const Period = styled.div`
 
 export default class MessageList extends Component {
   componentDidUpdate() {
-    this.scrollToBottom();
+    if (this.props.replyFocus) {
+      this.scrollToBottom();
+    }
   }
 
   scrollToBottom() {
@@ -85,4 +87,5 @@ export default class MessageList extends Component {
 
 MessageList.propTypes = {
   displayMsg: PropTypes.arrayOf(PropTypes.object).isRequired,
+  replyFocus: PropTypes.bool.isRequired,
 };
