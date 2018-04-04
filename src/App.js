@@ -10,7 +10,7 @@ import {
   MessageView,
 } from './components';
 
-require('dotenv').config();
+require('dotenv').config({ path: `${__dirname}/.env` });
 const crypto = require('crypto');
 
 const serverHost = process.env.SERVER_HOST || '127.0.0.1';
