@@ -10,7 +10,7 @@ import {
   MessageView,
 } from './components';
 
-require('dotenv').config({ path: `${__dirname}/.env` });
+require('dotenv').config();
 const crypto = require('crypto');
 
 const serverHost = process.env.SERVER_HOST || '127.0.0.1';
@@ -41,11 +41,13 @@ export default class App extends Component {
       password: '',
       username: '',
       replyFocus: false,
+      userCount: 0,
     };
   }
 
   componentDidMount() {
     const socket = openSocket(`http://${serverHost}:${serverPort}`);
+
     socket.on('broadcastMessage', data => {
       const decipher = crypto.createDecipher('aes192', this.state.password);
       let decrypted = decipher.update(data, 'hex', 'utf8');
@@ -62,6 +64,10 @@ export default class App extends Component {
           time: Date.now().toString(),
         }]
       })
+    });
+
+    socket.on('broadcastUserCount', data => {
+      this.setState({ userCount: data });
     });
   }
 
@@ -106,12 +112,13 @@ export default class App extends Component {
   };
 
   render() {
-    const { displayMsg, sendMsg, password, username, replyFocus } = this.state;
+    const { displayMsg, sendMsg, password, username, replyFocus, userCount } = this.state;
     return (
       <Container>
         <Navbar password={password} handleChange={this.handleChange} />
         <NewMessageBar />
         <Content>
+          {userCount}
           <IconsBar />
           <FolderList />
           <MessageList displayMsg={displayMsg} replyFocus={replyFocus} />

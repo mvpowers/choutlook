@@ -3,11 +3,22 @@ const io = require('socket.io')();
 require('dotenv').config();
 
 const port = process.env.SERVER_PORT || 3001;
+let userCount = 0;
 
 io.on('connection', client => {
+  userCount += 1;
+  console.log('connect', userCount);
+  client.emit('broadcastUserCount', userCount);
+
   client.on('createMessage', msg => {
     console.log(msg);
-    client.broadcast.emit('broadcastMessage', msg);
+    client.emit('broadcastMessage', msg);
+  });
+
+  client.on('disconnect', () => {
+    userCount -= 1;
+    console.log('disconnected, userCount');
+    client.emit('broadcastUserCount', userCount);
   });
 });
 
