@@ -98,6 +98,10 @@ const NameInput = styled.input`
   width: 10%;
 `;
 
+const Name = styled.div`
+  text-align: right;
+`;
+
 const icons = [
   <FaBold size={16} />,
   <FaItalic size={16} />,
@@ -113,22 +117,30 @@ const icons = [
 const Reply = ({
   sendMsg,
   username,
+  editingUsername,
   handleChange,
   submitSendMsg,
   discardSendMsg,
   submitOnEnter,
   handleFocus,
   handleBlur,
+  toggleEditUsername,
 }) => (
   <Container>
     <Sender>
       <Bubble>CH</Bubble>
-      <NameInput
-        id="username"
-        value={username}
-        type="text"
-        onChange={handleChange}
-      />@choutlook.com
+      {editingUsername ? (
+        <NameInput
+          id="username"
+          value={username}
+          type="text"
+          onChange={handleChange}
+          onBlur={toggleEditUsername}
+        />
+      ) : (
+        <Name onClick={toggleEditUsername}>{username}</Name>
+      )}
+      @choutlook.com
     </Sender>
     <Text
       id="sendMsg"
@@ -149,6 +161,8 @@ const Reply = ({
 Reply.propTypes = {
   sendMsg: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
+  editingUsername: PropTypes.bool.isRequired,
+  toggleEditUsername: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
   submitSendMsg: PropTypes.func.isRequired,
   discardSendMsg: PropTypes.func.isRequired,

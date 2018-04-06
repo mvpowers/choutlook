@@ -45,12 +45,14 @@ const Text = styled.div`
 const MessageView = ({
   sendMsg,
   username,
+  editingUsername,
   handleChange,
   submitSendMsg,
   discardSendMsg,
   submitOnEnter,
   handleFocus,
   handleBlur,
+  toggleEditUsername,
 }) => (
   <Container>
     <Title>Re: Super Important Business</Title>
@@ -68,6 +70,8 @@ const MessageView = ({
     <Reply
       sendMsg={sendMsg}
       username={username}
+      editingUsername={editingUsername}
+      toggleEditUsername={toggleEditUsername}
       handleChange={handleChange}
       submitSendMsg={submitSendMsg}
       discardSendMsg={discardSendMsg}
@@ -81,6 +85,8 @@ const MessageView = ({
 MessageView.propTypes = {
   sendMsg: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
+  editingUsername: PropTypes.bool.isRequired,
+  toggleEditUsername: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
   submitSendMsg: PropTypes.func.isRequired,
   discardSendMsg: PropTypes.func.isRequired,

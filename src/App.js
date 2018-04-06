@@ -39,7 +39,8 @@ export default class App extends Component {
       displayMsg: [],
       sendMsg: '',
       password: '',
-      username: '',
+      username: 'clickToAddUsername',
+      editingUsername: false,
       replyFocus: false,
     };
   }
@@ -84,6 +85,10 @@ export default class App extends Component {
     })
   }
 
+  toggleEditUsername = () => {
+    this.setState({ editingUsername: !this.state.editingUsername });
+  };
+
   handleChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
@@ -125,7 +130,14 @@ export default class App extends Component {
   };
 
   render() {
-    const { displayMsg, sendMsg, password, username, replyFocus } = this.state;
+    const {
+      displayMsg,
+      sendMsg,
+      password,
+      username,
+      replyFocus,
+      editingUsername,
+    } = this.state;
     return (
       <Container>
         <Navbar password={password} handleChange={this.handleChange} />
@@ -137,6 +149,8 @@ export default class App extends Component {
           <MessageView
             sendMsg={sendMsg}
             username={username}
+            editingUsername={editingUsername}
+            toggleEditUsername={this.toggleEditUsername}
             handleChange={this.handleChange}
             submitSendMsg={this.handleSend}
             discardSendMsg={this.handleDiscard}
