@@ -41,13 +41,10 @@ export default class App extends Component {
       password: '',
       username: '',
       replyFocus: false,
-      userCount: 0,
     };
   }
 
   componentDidMount() {
-    const socket = openSocket(`http://${serverHost}:${serverPort}`);
-
     socket.on('broadcastMessage', data => {
       const decipher = crypto.createDecipher('aes192', this.state.password);
       let decrypted = decipher.update(data, 'hex', 'utf8');
@@ -66,9 +63,25 @@ export default class App extends Component {
       })
     });
 
-    socket.on('broadcastUserCount', data => {
-      this.setState({ userCount: data });
+    socket.on('userConnect', () => {
+      this.setState({
+        displayMsg: [...this.state.displayMsg, {
+          user: 'admin',
+          message: 'User has entered chat',
+          time: Date.now().toString(),
+        }]
+      })
     });
+
+    socket.on('userDisconnect', () => {
+      this.setState({
+        displayMsg: [...this.state.displayMsg, {
+          user: 'admin',
+          message: 'User has left chat',
+          time: Date.now().toString(),
+        }]
+      })
+    })
   }
 
   handleChange = e => {
@@ -112,13 +125,12 @@ export default class App extends Component {
   };
 
   render() {
-    const { displayMsg, sendMsg, password, username, replyFocus, userCount } = this.state;
+    const { displayMsg, sendMsg, password, username, replyFocus } = this.state;
     return (
       <Container>
         <Navbar password={password} handleChange={this.handleChange} />
         <NewMessageBar />
         <Content>
-          {userCount}
           <IconsBar />
           <FolderList />
           <MessageList displayMsg={displayMsg} replyFocus={replyFocus} />
