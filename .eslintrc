@@ -1,6 +1,6 @@
 {
-  "extends": "airbnb",
-  "plugins": ["prettier", "styled-components-config"],
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier","styled-components-config"],
   "parser": "babel-eslint",
   "rules": {
     "prettier/prettier": "error",

@@ -1,0 +1,344 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageList should render correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MessageList
+    displayMsg={
+      Array [
+        Object {
+          "message": "message",
+          "time": "time",
+          "user": "user",
+        },
+      ]
+    }
+    replyFocus={false}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <MessageList__Header>
+          <MessageList__Title>
+            Inbox
+          </MessageList__Title>
+          <MessageList__Filter>
+            <MessageList__Text>
+              Filter
+            </MessageList__Text>
+            <FaChevronDown
+              size={12}
+            />
+          </MessageList__Filter>
+        </MessageList__Header>,
+        <MessageList__Period>
+          Today
+        </MessageList__Period>,
+        Array [
+          <Message
+            msg="message"
+            user="user"
+          />,
+        ],
+        <Unknown />,
+        <div />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <MessageList__Title>
+              Inbox
+            </MessageList__Title>,
+            <MessageList__Filter>
+              <MessageList__Text>
+                Filter
+              </MessageList__Text>
+              <FaChevronDown
+                size={12}
+              />
+            </MessageList__Filter>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Inbox",
+            },
+            "ref": null,
+            "rendered": "Inbox",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <MessageList__Text>
+                  Filter
+                </MessageList__Text>,
+                <FaChevronDown
+                  size={12}
+                />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Filter",
+                },
+                "ref": null,
+                "rendered": "Filter",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "size": 12,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "Today",
+        },
+        "ref": null,
+        "rendered": "Today",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "user_time",
+        "nodeType": "function",
+        "props": Object {
+          "msg": "message",
+          "user": "user",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": [Function],
+        "rendered": null,
+        "type": "div",
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <MessageList__Header>
+            <MessageList__Title>
+              Inbox
+            </MessageList__Title>
+            <MessageList__Filter>
+              <MessageList__Text>
+                Filter
+              </MessageList__Text>
+              <FaChevronDown
+                size={12}
+              />
+            </MessageList__Filter>
+          </MessageList__Header>,
+          <MessageList__Period>
+            Today
+          </MessageList__Period>,
+          Array [
+            <Message
+              msg="message"
+              user="user"
+            />,
+          ],
+          <Unknown />,
+          <div />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <MessageList__Title>
+                Inbox
+              </MessageList__Title>,
+              <MessageList__Filter>
+                <MessageList__Text>
+                  Filter
+                </MessageList__Text>
+                <FaChevronDown
+                  size={12}
+                />
+              </MessageList__Filter>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Inbox",
+              },
+              "ref": null,
+              "rendered": "Inbox",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <MessageList__Text>
+                    Filter
+                  </MessageList__Text>,
+                  <FaChevronDown
+                    size={12}
+                  />,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Filter",
+                  },
+                  "ref": null,
+                  "rendered": "Filter",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "size": 12,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Today",
+          },
+          "ref": null,
+          "rendered": "Today",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "user_time",
+          "nodeType": "function",
+          "props": Object {
+            "msg": "message",
+            "user": "user",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": [Function],
+          "rendered": null,
+          "type": "div",
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

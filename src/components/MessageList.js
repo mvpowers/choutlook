@@ -86,6 +86,12 @@ export default class MessageList extends Component {
 }
 
 MessageList.propTypes = {
-  displayMsg: PropTypes.arrayOf(PropTypes.object).isRequired,
+  displayMsg: PropTypes.arrayOf(
+    PropTypes.shape({
+      time: PropTypes.string.isRequired,
+      user: PropTypes.string.isRequired,
+      message: PropTypes.string.isRequired,
+    })
+  ).isRequired,
   replyFocus: PropTypes.bool.isRequired,
 };
