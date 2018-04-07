@@ -10,13 +10,12 @@ import {
   MessageView,
 } from './components';
 
+const config = require('./config');
 const crypto = require('crypto');
-require('dotenv').config({ path: '/.env' })
 
-const serverHost = process.env.SERVER_HOST || '127.0.0.1';
-const serverPort = process.env.SERVER_PORT || '3001';
+const serverHost = config.SERVER_HOST || '127.0.0.1';
+const serverPort = config.SERVER_PORT || '3001';
 const socket = openSocket(`http://${serverHost}:${serverPort}`);
-console.log(serverPort);
 
 const Container = styled.div`
   display: flex;
@@ -40,7 +39,7 @@ export default class App extends Component {
       displayMsg: [],
       sendMsg: '',
       password: '',
-      username: 'clickToAddUsername',
+      username: 'anonymous',
       editingUsername: false,
       replyFocus: false,
     };
