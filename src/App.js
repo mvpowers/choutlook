@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import openSocket from 'socket.io-client';
 import {
@@ -10,11 +10,11 @@ import {
   MessageView,
 } from './components';
 
-require('dotenv').config();
+const config = require('./config');
 const crypto = require('crypto');
 
-const serverHost = process.env.SERVER_HOST || '127.0.0.1';
-const serverPort = process.env.SERVER_PORT || '3001';
+const serverHost = config.SERVER_HOST || '127.0.0.1';
+const serverPort = config.SERVER_PORT || '3001';
 const socket = openSocket(`http://${serverHost}:${serverPort}`);
 
 const Container = styled.div`
@@ -39,7 +39,7 @@ export default class App extends Component {
       displayMsg: [],
       sendMsg: '',
       password: '',
-      username: 'clickToAddUsername',
+      username: 'anonymous',
       editingUsername: false,
       replyFocus: false,
     };
@@ -53,36 +53,45 @@ export default class App extends Component {
         decrypted += decipher.final('utf8');
         decrypted = JSON.parse(decrypted);
       } catch (e) {
-        decrypted = {username: 'admin', sendMsg: 'Error decrypting data'};
+        decrypted = { username: 'admin', sendMsg: 'Error decrypting data' };
       }
       this.setState({
-        displayMsg: [...this.state.displayMsg, {
-          user: decrypted.username,
-          message: decrypted.sendMsg,
-          time: Date.now().toString(),
-        }]
-      })
+        displayMsg: [
+          ...this.state.displayMsg,
+          {
+            user: decrypted.username,
+            message: decrypted.sendMsg,
+            time: Date.now().toString(),
+          },
+        ],
+      });
     });
 
     socket.on('userConnect', () => {
       this.setState({
-        displayMsg: [...this.state.displayMsg, {
-          user: 'admin',
-          message: 'User has entered chat',
-          time: Date.now().toString(),
-        }]
-      })
+        displayMsg: [
+          ...this.state.displayMsg,
+          {
+            user: 'admin',
+            message: 'User has entered chat',
+            time: Date.now().toString(),
+          },
+        ],
+      });
     });
 
     socket.on('userDisconnect', () => {
       this.setState({
-        displayMsg: [...this.state.displayMsg, {
-          user: 'admin',
-          message: 'User has left chat',
-          time: Date.now().toString(),
-        }]
-      })
-    })
+        displayMsg: [
+          ...this.state.displayMsg,
+          {
+            user: 'admin',
+            message: 'User has left chat',
+            time: Date.now().toString(),
+          },
+        ],
+      });
+    });
   }
 
   toggleEditUsername = () => {
@@ -95,7 +104,7 @@ export default class App extends Component {
 
   handleSend = () => {
     const { password, sendMsg, username } = this.state;
-    const msgObj = JSON.stringify({username, sendMsg});
+    const msgObj = JSON.stringify({ username, sendMsg });
     const cipher = crypto.createCipher('aes192', password);
     let encrypted = cipher.update(msgObj, 'utf8', 'hex');
     encrypted += cipher.final('hex');
@@ -111,7 +120,7 @@ export default class App extends Component {
   handleKeyPress = e => {
     const { password, sendMsg, username } = this.state;
     if (!e.shiftKey && e.key === 'Enter') {
-      const msgObj = JSON.stringify({username, sendMsg});
+      const msgObj = JSON.stringify({ username, sendMsg });
       const cipher = crypto.createCipher('aes192', password);
       let encrypted = cipher.update(msgObj, 'utf8', 'hex');
       encrypted += cipher.final('hex');
@@ -122,11 +131,11 @@ export default class App extends Component {
   };
 
   handleFocus = () => {
-    this.setState({replyFocus: true});
+    this.setState({ replyFocus: true });
   };
 
   handleBlur = () => {
-    this.setState({replyFocus: false});
+    this.setState({ replyFocus: false });
   };
 
   render() {

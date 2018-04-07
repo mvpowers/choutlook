@@ -1,0 +1,2 @@
+exports.SERVER_PORT = '3002';
+exports.SERVER_HOST = '127.0.0.1';

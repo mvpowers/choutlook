@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
+const config = require('./config');
 const io = require('socket.io')();
-require('dotenv').config();
 
-const port = process.env.SERVER_PORT || 3001;
+const port = config.SERVER_PORT || '3001';
 
 io.on('connection', client => {
   client.broadcast.emit('userConnect');
@@ -21,6 +21,6 @@ io.on('connection', client => {
 io.listen(port);
 
 console.log('Listening on port', port);
-if (!process.env.SERVER_PORT) {
+if (!config.SERVER_PORT) {
   console.log('You are currently using the default server port');
 }

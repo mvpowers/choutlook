@@ -39,7 +39,7 @@ const Text = styled.div`
 
 const Period = styled.div`
   background-color: #f8f8f8;
-  border-bottom: 1px solid #eaeaea
+  border-bottom: 1px solid #eaeaea;
   padding: 10px;
   font-size: 14px;
 `;

@@ -57,8 +57,9 @@ typings/
 # Yarn lock
 yarn.lock
 
-# dotenv environment variables file
+# environment variables file
 .env
+config.js
 
 # next.js build output
 .next
@@ -66,3 +67,6 @@ yarn.lock
 # IDEs
 .idea
 .vscode
+
+# Webpack Build
+bundle.js
