@@ -1,0 +1,25 @@
+{
+  "name": "choutlook",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mvpowers/choutlook.git"
+  },
+  "author": "mvpowers@mvpowers.net",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mvpowers/choutlook/issues"
+  },
+  "homepage": "https://github.com/mvpowers/choutlook#readme",
+  "devDependencies": {
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14",
+    "webpack-dev-server": "^3.1.1"
+  }
+}
