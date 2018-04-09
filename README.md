@@ -40,12 +40,12 @@ Uses ESLint extending Airbnb and Prettier.
 
 ### Enter password into search bar
 > All users must have the same password to read the encrypted data
-![enter password](https://ibb.co/hOw4Ex)
+![enter password](https://image.ibb.co/dG1FMc/password.png)
 
 ### Update username
 > Click on the email prefix above the reply box to change your username
-![enter password](https://ibb.co/mR0vnH)
+![enter password](https://image.ibb.co/ktPMSH/username.png)
 
 ### Start chatting
 > Type your message in the reply box and press enter or click submit
-![enter password](https://ibb.co/jx4D7H)
+![enter password](https://image.ibb.co/nuXN1c/reply.png)
