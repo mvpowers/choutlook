@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --silent",
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "build": "webpack --progress --mode production",
     "server": "node src/server.js",

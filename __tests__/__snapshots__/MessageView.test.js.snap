@@ -1,0 +1,300 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageView should render correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MessageView
+    discardSendMsg={[MockFunction]}
+    editingUsername={false}
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    sendMsg="sendMsg"
+    submitOnEnter={[MockFunction]}
+    submitSendMsg={[MockFunction]}
+    toggleEditUsername={[MockFunction]}
+    username="username"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <MessageView__Title>
+          Re: Super Important Business
+        </MessageView__Title>,
+        <MessageView__Message>
+          <MessageView__Sender>
+            <MessageView__Bubble>
+              CH
+            </MessageView__Bubble>
+            admin@choutlook.com
+          </MessageView__Sender>
+          <MessageView__Text>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab amet consequuntur culpa cupiditate delectus est explicabo fugit harum illum incidunt ipsam, minima neque nostrum odit officia placeat possimus
+          </MessageView__Text>
+        </MessageView__Message>,
+        <Reply
+          discardSendMsg={[MockFunction]}
+          editingUsername={false}
+          handleBlur={[MockFunction]}
+          handleChange={[MockFunction]}
+          handleFocus={[MockFunction]}
+          sendMsg="sendMsg"
+          submitOnEnter={[MockFunction]}
+          submitSendMsg={[MockFunction]}
+          toggleEditUsername={[MockFunction]}
+          username="username"
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "Re: Super Important Business",
+        },
+        "ref": null,
+        "rendered": "Re: Super Important Business",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <MessageView__Sender>
+              <MessageView__Bubble>
+                CH
+              </MessageView__Bubble>
+              admin@choutlook.com
+            </MessageView__Sender>,
+            <MessageView__Text>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab amet consequuntur culpa cupiditate delectus est explicabo fugit harum illum incidunt ipsam, minima neque nostrum odit officia placeat possimus
+            </MessageView__Text>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <MessageView__Bubble>
+                  CH
+                </MessageView__Bubble>,
+                "admin@choutlook.com",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "CH",
+                },
+                "ref": null,
+                "rendered": "CH",
+                "type": [Function],
+              },
+              "admin@choutlook.com",
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab amet consequuntur culpa cupiditate delectus est explicabo fugit harum illum incidunt ipsam, minima neque nostrum odit officia placeat possimus",
+            },
+            "ref": null,
+            "rendered": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab amet consequuntur culpa cupiditate delectus est explicabo fugit harum illum incidunt ipsam, minima neque nostrum odit officia placeat possimus",
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "discardSendMsg": [MockFunction],
+          "editingUsername": false,
+          "handleBlur": [MockFunction],
+          "handleChange": [MockFunction],
+          "handleFocus": [MockFunction],
+          "sendMsg": "sendMsg",
+          "submitOnEnter": [MockFunction],
+          "submitSendMsg": [MockFunction],
+          "toggleEditUsername": [MockFunction],
+          "username": "username",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <MessageView__Title>
+            Re: Super Important Business
+          </MessageView__Title>,
+          <MessageView__Message>
+            <MessageView__Sender>
+              <MessageView__Bubble>
+                CH
+              </MessageView__Bubble>
+              admin@choutlook.com
+            </MessageView__Sender>
+            <MessageView__Text>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab amet consequuntur culpa cupiditate delectus est explicabo fugit harum illum incidunt ipsam, minima neque nostrum odit officia placeat possimus
+            </MessageView__Text>
+          </MessageView__Message>,
+          <Reply
+            discardSendMsg={[MockFunction]}
+            editingUsername={false}
+            handleBlur={[MockFunction]}
+            handleChange={[MockFunction]}
+            handleFocus={[MockFunction]}
+            sendMsg="sendMsg"
+            submitOnEnter={[MockFunction]}
+            submitSendMsg={[MockFunction]}
+            toggleEditUsername={[MockFunction]}
+            username="username"
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Re: Super Important Business",
+          },
+          "ref": null,
+          "rendered": "Re: Super Important Business",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <MessageView__Sender>
+                <MessageView__Bubble>
+                  CH
+                </MessageView__Bubble>
+                admin@choutlook.com
+              </MessageView__Sender>,
+              <MessageView__Text>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab amet consequuntur culpa cupiditate delectus est explicabo fugit harum illum incidunt ipsam, minima neque nostrum odit officia placeat possimus
+              </MessageView__Text>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <MessageView__Bubble>
+                    CH
+                  </MessageView__Bubble>,
+                  "admin@choutlook.com",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "CH",
+                  },
+                  "ref": null,
+                  "rendered": "CH",
+                  "type": [Function],
+                },
+                "admin@choutlook.com",
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab amet consequuntur culpa cupiditate delectus est explicabo fugit harum illum incidunt ipsam, minima neque nostrum odit officia placeat possimus",
+              },
+              "ref": null,
+              "rendered": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab amet consequuntur culpa cupiditate delectus est explicabo fugit harum illum incidunt ipsam, minima neque nostrum odit officia placeat possimus",
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "discardSendMsg": [MockFunction],
+            "editingUsername": false,
+            "handleBlur": [MockFunction],
+            "handleChange": [MockFunction],
+            "handleFocus": [MockFunction],
+            "sendMsg": "sendMsg",
+            "submitOnEnter": [MockFunction],
+            "submitSendMsg": [MockFunction],
+            "toggleEditUsername": [MockFunction],
+            "username": "username",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

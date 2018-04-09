@@ -1,0 +1,920 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reply should render correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Reply
+    discardSendMsg={[MockFunction]}
+    editingUsername={false}
+    handleBlur={[MockFunction]}
+    handleChange={[MockFunction]}
+    handleFocus={[MockFunction]}
+    sendMsg="sendMsg"
+    submitOnEnter={[MockFunction]}
+    submitSendMsg={[MockFunction]}
+    toggleEditUsername={[MockFunction]}
+    username="username"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <Reply__Sender>
+          <Reply__Bubble>
+            CH
+          </Reply__Bubble>
+          <Reply__Name
+            onClick={[MockFunction]}
+          >
+            username
+          </Reply__Name>
+          @choutlook.com
+        </Reply__Sender>,
+        <Reply__Text
+          id="sendMsg"
+          onBlur={[MockFunction]}
+          onChange={[MockFunction]}
+          onFocus={[MockFunction]}
+          onKeyPress={[MockFunction]}
+          type="textarea"
+          value="sendMsg"
+        />,
+        <Reply__Tools>
+          <Reply__Icon>
+            <FaBold
+              size={16}
+            />
+          </Reply__Icon>
+          <Reply__Icon>
+            <FaItalic
+              size={16}
+            />
+          </Reply__Icon>
+          <Reply__Icon>
+            <FaUnderline
+              size={16}
+            />
+          </Reply__Icon>
+          <Reply__Icon>
+            <FaAlignCenter
+              size={16}
+            />
+          </Reply__Icon>
+          <Reply__Icon>
+            <FaAlignJustify
+              size={16}
+            />
+          </Reply__Icon>
+          <Reply__Icon>
+            <FaAlignLeft
+              size={16}
+            />
+          </Reply__Icon>
+          <Reply__Icon>
+            <FaAlignRight
+              size={16}
+            />
+          </Reply__Icon>
+          <Reply__Icon>
+            <FaListUl
+              size={16}
+            />
+          </Reply__Icon>
+          <Reply__Icon>
+            <FaListOl
+              size={16}
+            />
+          </Reply__Icon>
+        </Reply__Tools>,
+        <Reply__Send
+          onClick={[MockFunction]}
+        >
+          Send
+        </Reply__Send>,
+        <Reply__Discard
+          onClick={[MockFunction]}
+        >
+          Discard
+        </Reply__Discard>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Reply__Bubble>
+              CH
+            </Reply__Bubble>,
+            <Reply__Name
+              onClick={[MockFunction]}
+            >
+              username
+            </Reply__Name>,
+            "@choutlook.com",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "CH",
+            },
+            "ref": null,
+            "rendered": "CH",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "username",
+              "onClick": [MockFunction],
+            },
+            "ref": null,
+            "rendered": "username",
+            "type": [Function],
+          },
+          "@choutlook.com",
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "id": "sendMsg",
+          "onBlur": [MockFunction],
+          "onChange": [MockFunction],
+          "onFocus": [MockFunction],
+          "onKeyPress": [MockFunction],
+          "type": "textarea",
+          "value": "sendMsg",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Reply__Icon>
+              <FaBold
+                size={16}
+              />
+            </Reply__Icon>,
+            <Reply__Icon>
+              <FaItalic
+                size={16}
+              />
+            </Reply__Icon>,
+            <Reply__Icon>
+              <FaUnderline
+                size={16}
+              />
+            </Reply__Icon>,
+            <Reply__Icon>
+              <FaAlignCenter
+                size={16}
+              />
+            </Reply__Icon>,
+            <Reply__Icon>
+              <FaAlignJustify
+                size={16}
+              />
+            </Reply__Icon>,
+            <Reply__Icon>
+              <FaAlignLeft
+                size={16}
+              />
+            </Reply__Icon>,
+            <Reply__Icon>
+              <FaAlignRight
+                size={16}
+              />
+            </Reply__Icon>,
+            <Reply__Icon>
+              <FaListUl
+                size={16}
+              />
+            </Reply__Icon>,
+            <Reply__Icon>
+              <FaListOl
+                size={16}
+              />
+            </Reply__Icon>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "0",
+            "nodeType": "class",
+            "props": Object {
+              "children": <FaBold
+                size={16}
+              />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "size": 16,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "1",
+            "nodeType": "class",
+            "props": Object {
+              "children": <FaItalic
+                size={16}
+              />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "size": 16,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "2",
+            "nodeType": "class",
+            "props": Object {
+              "children": <FaUnderline
+                size={16}
+              />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "size": 16,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "3",
+            "nodeType": "class",
+            "props": Object {
+              "children": <FaAlignCenter
+                size={16}
+              />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "size": 16,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "4",
+            "nodeType": "class",
+            "props": Object {
+              "children": <FaAlignJustify
+                size={16}
+              />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "size": 16,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "5",
+            "nodeType": "class",
+            "props": Object {
+              "children": <FaAlignLeft
+                size={16}
+              />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "size": 16,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "6",
+            "nodeType": "class",
+            "props": Object {
+              "children": <FaAlignRight
+                size={16}
+              />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "size": 16,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "7",
+            "nodeType": "class",
+            "props": Object {
+              "children": <FaListUl
+                size={16}
+              />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "size": 16,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "8",
+            "nodeType": "class",
+            "props": Object {
+              "children": <FaListOl
+                size={16}
+              />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "size": 16,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "Send",
+          "onClick": [MockFunction],
+        },
+        "ref": null,
+        "rendered": "Send",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "Discard",
+          "onClick": [MockFunction],
+        },
+        "ref": null,
+        "rendered": "Discard",
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <Reply__Sender>
+            <Reply__Bubble>
+              CH
+            </Reply__Bubble>
+            <Reply__Name
+              onClick={[MockFunction]}
+            >
+              username
+            </Reply__Name>
+            @choutlook.com
+          </Reply__Sender>,
+          <Reply__Text
+            id="sendMsg"
+            onBlur={[MockFunction]}
+            onChange={[MockFunction]}
+            onFocus={[MockFunction]}
+            onKeyPress={[MockFunction]}
+            type="textarea"
+            value="sendMsg"
+          />,
+          <Reply__Tools>
+            <Reply__Icon>
+              <FaBold
+                size={16}
+              />
+            </Reply__Icon>
+            <Reply__Icon>
+              <FaItalic
+                size={16}
+              />
+            </Reply__Icon>
+            <Reply__Icon>
+              <FaUnderline
+                size={16}
+              />
+            </Reply__Icon>
+            <Reply__Icon>
+              <FaAlignCenter
+                size={16}
+              />
+            </Reply__Icon>
+            <Reply__Icon>
+              <FaAlignJustify
+                size={16}
+              />
+            </Reply__Icon>
+            <Reply__Icon>
+              <FaAlignLeft
+                size={16}
+              />
+            </Reply__Icon>
+            <Reply__Icon>
+              <FaAlignRight
+                size={16}
+              />
+            </Reply__Icon>
+            <Reply__Icon>
+              <FaListUl
+                size={16}
+              />
+            </Reply__Icon>
+            <Reply__Icon>
+              <FaListOl
+                size={16}
+              />
+            </Reply__Icon>
+          </Reply__Tools>,
+          <Reply__Send
+            onClick={[MockFunction]}
+          >
+            Send
+          </Reply__Send>,
+          <Reply__Discard
+            onClick={[MockFunction]}
+          >
+            Discard
+          </Reply__Discard>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <Reply__Bubble>
+                CH
+              </Reply__Bubble>,
+              <Reply__Name
+                onClick={[MockFunction]}
+              >
+                username
+              </Reply__Name>,
+              "@choutlook.com",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "CH",
+              },
+              "ref": null,
+              "rendered": "CH",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "username",
+                "onClick": [MockFunction],
+              },
+              "ref": null,
+              "rendered": "username",
+              "type": [Function],
+            },
+            "@choutlook.com",
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "id": "sendMsg",
+            "onBlur": [MockFunction],
+            "onChange": [MockFunction],
+            "onFocus": [MockFunction],
+            "onKeyPress": [MockFunction],
+            "type": "textarea",
+            "value": "sendMsg",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <Reply__Icon>
+                <FaBold
+                  size={16}
+                />
+              </Reply__Icon>,
+              <Reply__Icon>
+                <FaItalic
+                  size={16}
+                />
+              </Reply__Icon>,
+              <Reply__Icon>
+                <FaUnderline
+                  size={16}
+                />
+              </Reply__Icon>,
+              <Reply__Icon>
+                <FaAlignCenter
+                  size={16}
+                />
+              </Reply__Icon>,
+              <Reply__Icon>
+                <FaAlignJustify
+                  size={16}
+                />
+              </Reply__Icon>,
+              <Reply__Icon>
+                <FaAlignLeft
+                  size={16}
+                />
+              </Reply__Icon>,
+              <Reply__Icon>
+                <FaAlignRight
+                  size={16}
+                />
+              </Reply__Icon>,
+              <Reply__Icon>
+                <FaListUl
+                  size={16}
+                />
+              </Reply__Icon>,
+              <Reply__Icon>
+                <FaListOl
+                  size={16}
+                />
+              </Reply__Icon>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "0",
+              "nodeType": "class",
+              "props": Object {
+                "children": <FaBold
+                  size={16}
+                />,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "size": 16,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "1",
+              "nodeType": "class",
+              "props": Object {
+                "children": <FaItalic
+                  size={16}
+                />,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "size": 16,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "2",
+              "nodeType": "class",
+              "props": Object {
+                "children": <FaUnderline
+                  size={16}
+                />,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "size": 16,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "3",
+              "nodeType": "class",
+              "props": Object {
+                "children": <FaAlignCenter
+                  size={16}
+                />,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "size": 16,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "4",
+              "nodeType": "class",
+              "props": Object {
+                "children": <FaAlignJustify
+                  size={16}
+                />,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "size": 16,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "5",
+              "nodeType": "class",
+              "props": Object {
+                "children": <FaAlignLeft
+                  size={16}
+                />,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "size": 16,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "6",
+              "nodeType": "class",
+              "props": Object {
+                "children": <FaAlignRight
+                  size={16}
+                />,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "size": 16,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "7",
+              "nodeType": "class",
+              "props": Object {
+                "children": <FaListUl
+                  size={16}
+                />,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "size": 16,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "8",
+              "nodeType": "class",
+              "props": Object {
+                "children": <FaListOl
+                  size={16}
+                />,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "size": 16,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Send",
+            "onClick": [MockFunction],
+          },
+          "ref": null,
+          "rendered": "Send",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Discard",
+            "onClick": [MockFunction],
+          },
+          "ref": null,
+          "rendered": "Discard",
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
