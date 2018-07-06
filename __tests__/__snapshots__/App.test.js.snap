@@ -43,6 +43,14 @@ ShallowWrapper {
             username="anonymous"
           />
         </App__Content>,
+        <HelmetWrapper
+          defer={true}
+          encodeSpecialCharacters={true}
+        >
+          <title>
+            Choutlook
+          </title>
+        </HelmetWrapper>,
       ],
     },
     "ref": null,
@@ -149,6 +157,31 @@ ShallowWrapper {
         ],
         "type": [Function],
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <title>
+            Choutlook
+          </title>,
+          "defer": true,
+          "encodeSpecialCharacters": true,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Choutlook",
+          },
+          "ref": null,
+          "rendered": "Choutlook",
+          "type": "title",
+        },
+        "type": [Function],
+      },
     ],
     "type": [Function],
   },
@@ -184,6 +217,14 @@ ShallowWrapper {
               username="anonymous"
             />
           </App__Content>,
+          <HelmetWrapper
+            defer={true}
+            encodeSpecialCharacters={true}
+          >
+            <title>
+              Choutlook
+            </title>
+          </HelmetWrapper>,
         ],
       },
       "ref": null,
@@ -288,6 +329,31 @@ ShallowWrapper {
               "type": [Function],
             },
           ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <title>
+              Choutlook
+            </title>,
+            "defer": true,
+            "encodeSpecialCharacters": true,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Choutlook",
+            },
+            "ref": null,
+            "rendered": "Choutlook",
+            "type": "title",
+          },
           "type": [Function],
         },
       ],

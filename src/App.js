@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import openSocket from 'socket.io-client';
+import { Helmet } from 'react-helmet';
 import {
   Navbar,
   NewMessageBar,
@@ -12,6 +13,7 @@ import {
 
 const config = require('./config');
 const crypto = require('crypto');
+const uuidv4 = require('uuid/v4');
 
 const serverHost = config.SERVER_HOST || '127.0.0.1';
 const serverPort = config.SERVER_PORT || '3001';
@@ -42,12 +44,15 @@ export default class App extends Component {
       username: 'anonymous',
       editingUsername: false,
       replyFocus: false,
+      unreadMsg: false,
+      sessionId: uuidv4(),
     };
   }
 
   componentDidMount() {
+    const { password, replyFocus, sessionId } = this.state;
     socket.on('broadcastMessage', data => {
-      const decipher = crypto.createDecipher('aes192', this.state.password);
+      const decipher = crypto.createDecipher('aes192', password);
       let decrypted = decipher.update(data, 'hex', 'utf8');
       try {
         decrypted += decipher.final('utf8');
@@ -61,10 +66,14 @@ export default class App extends Component {
           {
             user: decrypted.username,
             message: decrypted.sendMsg,
+            sessionId: decrypted.sessionId,
             time: Date.now().toString(),
           },
         ],
       });
+      if (!replyFocus && decrypted.sessionId !== sessionId) {
+        this.setState({ unreadMsg: true });
+      }
     });
 
     socket.on('userConnect', () => {
@@ -95,7 +104,9 @@ export default class App extends Component {
   }
 
   toggleEditUsername = () => {
-    this.setState({ editingUsername: !this.state.editingUsername });
+    this.setState(prevState => ({
+      editingUsername: !prevState.editingUsername,
+    }));
   };
 
   handleChange = e => {
@@ -103,8 +114,8 @@ export default class App extends Component {
   };
 
   handleSend = () => {
-    const { password, sendMsg, username } = this.state;
-    const msgObj = JSON.stringify({ username, sendMsg });
+    const { password, sendMsg, username, sessionId } = this.state;
+    const msgObj = JSON.stringify({ username, sendMsg, sessionId });
     const cipher = crypto.createCipher('aes192', password);
     let encrypted = cipher.update(msgObj, 'utf8', 'hex');
     encrypted += cipher.final('hex');
@@ -118,9 +129,12 @@ export default class App extends Component {
   };
 
   handleKeyPress = e => {
-    const { password, sendMsg, username } = this.state;
+    const { password, sendMsg, username, sessionId } = this.state;
+
+    this.setState({ unreadMsg: false });
+
     if (!e.shiftKey && e.key === 'Enter') {
-      const msgObj = JSON.stringify({ username, sendMsg });
+      const msgObj = JSON.stringify({ username, sendMsg, sessionId });
       const cipher = crypto.createCipher('aes192', password);
       let encrypted = cipher.update(msgObj, 'utf8', 'hex');
       encrypted += cipher.final('hex');
@@ -131,11 +145,11 @@ export default class App extends Component {
   };
 
   handleFocus = () => {
-    this.setState({ replyFocus: true });
+    this.setState({ replyFocus: true, unreadMsg: false });
   };
 
   handleBlur = () => {
-    this.setState({ replyFocus: false });
+    this.setState({ replyFocus: false, unreadMsg: false });
   };
 
   render() {
@@ -146,6 +160,7 @@ export default class App extends Component {
       username,
       replyFocus,
       editingUsername,
+      unreadMsg,
     } = this.state;
     return (
       <Container>
@@ -168,6 +183,9 @@ export default class App extends Component {
             handleBlur={this.handleBlur}
           />
         </Content>
+        <Helmet>
+          <title>{unreadMsg ? 'Choutlook*' : 'Choutlook'}</title>
+        </Helmet>
       </Container>
     );
   }

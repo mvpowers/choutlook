@@ -51,7 +51,6 @@ ShallowWrapper {
             user="user"
           />,
         ],
-        <Unknown />,
         <div />,
       ],
     },
@@ -146,21 +145,12 @@ ShallowWrapper {
       },
       Object {
         "instance": null,
-        "key": "user_time",
+        "key": "aabd44de-28b1-41cb-9806-da0ee055958d",
         "nodeType": "function",
         "props": Object {
           "msg": "message",
           "user": "user",
         },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {},
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -206,7 +196,6 @@ ShallowWrapper {
               user="user"
             />,
           ],
-          <Unknown />,
           <div />,
         ],
       },
@@ -301,21 +290,12 @@ ShallowWrapper {
         },
         Object {
           "instance": null,
-          "key": "user_time",
+          "key": "aabd44de-28b1-41cb-9806-da0ee055958d",
           "nodeType": "function",
           "props": Object {
             "msg": "message",
             "user": "user",
           },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {},
           "ref": null,
           "rendered": null,
           "type": [Function],

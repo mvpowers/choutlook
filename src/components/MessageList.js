@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { FaChevronDown } from 'react-icons/lib/fa';
-import { Message, VisibilityTitle } from './';
+import { Message } from './';
+
+const uuidv4 = require('uuid/v4');
 
 const Container = styled.div`
   background-color: #fff;
@@ -68,13 +70,8 @@ export default class MessageList extends Component {
         </Header>
         <Period>Today</Period>
         {displayMsg.map(msg => (
-          <Message
-            key={`${msg.user}_${msg.time}`}
-            user={msg.user}
-            msg={msg.message}
-          />
+          <Message key={uuidv4()} user={msg.user} msg={msg.message} />
         ))}
-        <VisibilityTitle />
         <div
           ref={el => {
             this.el = el;

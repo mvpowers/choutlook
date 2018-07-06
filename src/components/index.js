@@ -9,4 +9,3 @@ export { default as MessageView } from './MessageView';
 export { default as Navbar } from './Navbar';
 export { default as NewMessageBar } from './NewMessageBar';
 export { default as Reply } from './Reply';
-export { default as VisibilityTitle } from './VisibilityTitle';
