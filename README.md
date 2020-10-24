@@ -1,5 +1,5 @@
 # Choutlook
-> Chat app that mimics Outlook's front-end with no database and client-side encryption.
+> Chat app that mimics Outlook's front-end with client-side encryption and no database.
 
 ## Installing / Getting started
 
